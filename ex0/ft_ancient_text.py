@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 import sys
-from typing import IO
+from typing import TextIO
 
 
 def ft_ancient_text(argv: list[str]) -> None:
@@ -11,7 +11,7 @@ def ft_ancient_text(argv: list[str]) -> None:
         print("=== Cyber Archives Recovery ===")
         try:
             print(f"Accessing file '{argv[1]}'")
-            archive_file: IO = open(argv[1])
+            archive_file: TextIO = open(argv[1])
             print("---\n")
             print(archive_file.read())
             print("\n---")

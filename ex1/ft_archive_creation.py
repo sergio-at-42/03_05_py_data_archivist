@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 import sys
-from typing import IO
+from typing import TextIO
 
 
 def file_error_msg(e: Exception, file_name: str) -> str:
@@ -15,7 +15,7 @@ def ft_archive_creation(argv: list[str]) -> None:
         print("=== Cyber Archives Recovery & Preservation ===")
         try:
             print(f"Accessing file '{argv[1]}'")
-            archive_file: IO = open(argv[1])
+            archive_file: TextIO = open(argv[1])
             print("---\n")
             enrg_archive_file: str = archive_file.read()
             print(enrg_archive_file)
@@ -37,13 +37,13 @@ def ft_archive_creation(argv: list[str]) -> None:
             else:
                 try:
                     print(f"Saving data to '{name}'")
-                    new_file: IO = open(name, "w")
+                    new_file: TextIO = open(name, "w")
                     new_file.write(enrg_new_file)
                     new_file.close()
                     print(f"Data saved in file ’{name}'.")
                 except Exception as e:
                     print(file_error_msg(e, name))
-                    print(f"Data not saved.")
+                    print("Data not saved.")
             print("")
 
 

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 import sys
-from typing import IO
+from typing import TextIO
 
 
 def file_error_msg(e: Exception, file_name: str) -> str:
@@ -15,7 +15,7 @@ def ft_stream_management(argv: list[str]) -> None:
         print("=== Cyber Archives Recovery & Preservation ===")
         try:
             print(f"Accessing file '{argv[1]}'")
-            archive_file: IO = open(argv[1])
+            archive_file: TextIO = open(argv[1])
             print("---\n")
             enrg_archive_file: str = archive_file.read()
             print(enrg_archive_file)
@@ -40,14 +40,14 @@ def ft_stream_management(argv: list[str]) -> None:
             else:
                 print(f"Saving data to '{new_file_name}'")
                 try:
-                    new_file: IO = open(new_file_name, "w")
+                    new_file: TextIO = open(new_file_name, "w")
                     new_file.write(enrg_new_file)
                     new_file.close()
                     print(f"Data saved in file ’{new_file_name}'.")
                 except Exception as e:
                     sys.stderr.write(file_error_msg(e, new_file_name))
                     sys.stderr.flush()
-                    print(f"Data not saved.")
+                    print("Data not saved.")
     print("")
 
 
